@@ -1,0 +1,18 @@
+{
+  "id": "docs-001",
+  "category": "documentation",
+  "difficulty": "easy",
+  "name": "Function Docstring",
+  "prompt": "Write a comprehensive docstring for this Python function:\n\n```python\ndef process_payment(amount, currency, user_id, payment_method):\n    if amount <= 0:\n        raise ValueError(\"Amount must be positive\")\n    if currency not in ['USD', 'EUR', 'GBP']:\n        raise ValueError(\"Unsupported currency\")\n    # Process payment logic here\n    transaction_id = generate_transaction_id()\n    log_payment(user_id, amount, currency, transaction_id)\n    return transaction_id\n```\n\nInclude: description, parameters, return value, exceptions, and example usage.",
+  "expected": {
+    "must_contain": ["Args:", "Returns:", "Raises:", "Example", "amount", "currency", "user_id", "payment_method", "transaction_id"],
+    "must_not_contain": ["TODO", "pass"],
+    "language": "python"
+  },
+  "scoring": {
+    "correctness_weight": 0.4,
+    "completeness_weight": 0.2,
+    "quality_weight": 0.2,
+    "speed_weight": 0.2
+  }
+}

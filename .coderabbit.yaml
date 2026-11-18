@@ -1,0 +1,34 @@
+# .coderabbit.yaml - CodeRabbit configuration for Appy-UX Studio
+language: en-US
+early_access: false
+
+reviews:
+  profile: chill
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: false
+  review_status: true
+  collapse_walkthrough: false
+  auto_review:
+    enabled: true
+    drafts: false
+    base_branches:
+      - main
+      - develop
+  path_instructions:
+    - path: "backend/**/*.py"
+      instructions: "Check for SQL injection, proper error handling, type hints, and PEP 8 compliance"
+    - path: "frontend/**/*.jsx"
+      instructions: "Check for XSS vulnerabilities, accessibility (a11y), and responsive design"
+    - path: "**/*.html"
+      instructions: "Check for accessibility, semantic HTML, and valid links"
+    - path: "**/*.css"
+      instructions: "Check for responsive design and browser compatibility"
+  tools:
+    ruff:
+      enabled: true
+    eslint:
+      enabled: true
+
+chat:
+  auto_reply: true

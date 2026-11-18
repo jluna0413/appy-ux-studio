@@ -1,0 +1,95 @@
+# Port Registry — Machine-Readable Format
+# Single source of truth for port allocation
+# Update this file AND PORT_REGISTRY.md when allocating ports
+
+[meta]
+version = "1.0"
+last_updated = "2026-11-16"
+next_available_block = 5200
+block_size = 10
+ports_per_project = 3
+
+# ── Core Services (Always Running) ──
+[[core]]
+port = 8002
+service = "backend-api"
+project = "appy-ux-studio"
+owner = "agency"
+status = "active"
+
+[[core]]
+port = 8188
+service = "comfyui"
+project = "comfyui"
+owner = "agency"
+status = "active"
+
+# ── Frontend Dev Servers ──
+[[frontend]]
+port = 5180
+service = "client-portal-dev"
+project = "appy-ux-studio"
+owner = "agency"
+status = "configured"
+
+[[frontend]]
+port = 5181
+service = "admin-dashboard-dev"
+project = "appy-ux-studio"
+owner = "agency"
+status = "configured"
+
+# ── Infrastructure ──
+[[infra]]
+port = 9000
+service = "postgresql"
+project = "db-primary"
+owner = "infra"
+status = "planned"
+
+[[infra]]
+port = 9001
+service = "redis"
+project = "cache-primary"
+owner = "infra"
+status = "planned"
+
+[[infra]]
+port = 80
+service = "reverse-proxy-http"
+project = "proxy"
+owner = "infra"
+status = "planned"
+
+[[infra]]
+port = 443
+service = "reverse-proxy-https"
+project = "proxy"
+owner = "infra"
+status = "planned"
+
+# ── Project Port Blocks ──
+# Each project gets 3 ports: frontend, admin, backend
+# Blocks start at 5200, increment by 10
+
+# Example (uncomment and fill when allocating):
+# [[project]]
+# block = 5200
+# frontend = 5200
+# admin = 5201
+# backend = 5202
+# project = "client-alpha"
+# client = "alpha-corp"
+# allocated = "2026-11-20"
+# status = "active"
+
+# ── Reserved Ranges ──
+[reserved]
+frontend_dev = "3000-3099"
+frontend_prod = "4000-4099"
+backend_api = "5000-5099"
+admin_dash = "6000-6099"
+shop = "7000-7099"
+internal = "8000-8099"
+infra = "9000-9099"
+ai_services = "10000-10099"

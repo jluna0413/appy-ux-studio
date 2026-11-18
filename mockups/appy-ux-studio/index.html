@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appy-UX Studio | Creative Work You Can See, Hear, and Feel</title>
+  <meta name="description" content="Appy-UX Studio — image restoration & animation, short and long-form video, music & sound, and game-ready assets. Explore our creative categories.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Azeret+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/media-players.css">
+<link rel="stylesheet" href="assets/contact-modal.css">
+<link rel="stylesheet" href="assets/contact-modal.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand" aria-label="Appy-UX Studio home">
+        <span class="brand-mark">A</span><span>Appy-UX Studio</span>
+      </a>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" onclick="this.nextElementSibling.classList.toggle('open')">☰</button>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html" class="active">Home</a>
+        <a href="image/index.html">Image</a>
+        <a href="video/index.html">Video</a>
+        <a href="music/index.html">Music</a>
+        <a href="games/index.html">Games</a>
+        <a href="shop/index.html">Shop</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn btn-secondary" href="mailto:hello@appyux.studio?subject=Project%20Inquiry%20-%20Appy-UX%20Studio">Start a project</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="snap-page" id="main">
+    <!-- 1. Hero -->
+    <section class="snap-section" id="top">
+      <div class="container inner center">
+        <div class="t-label" style="margin-bottom:1.2rem;">Appy-UX Studio</div>
+        <h1 class="t-display">Creative work you can <span style="color:var(--accent);">see</span>, <span style="color:var(--accent);">hear</span>, and feel.</h1>
+        <p class="t-sub" style="margin-top:1.5rem; max-width:48ch;">We turn photos, footage, sound, and ideas into tangible results. Restored memories. Scroll-stopping videos. Custom music. Game-ready assets.</p>
+        <div class="hero-actions" style="margin-top:2.5rem;">
+          <a class="btn btn-primary" href="#work">See our work</a>
+        </div>
+      </div>
+      <div class="scroll-hint">Scroll</div>
+    </section>
+
+    <!-- 2. Showcase: Image — Slide-to-Revive -->
+    <section class="snap-section" id="work">
+      <div class="container inner">
+        <div class="t-label" style="margin-bottom:0.6rem;">Image</div>
+        <h2 class="t-heading" style="max-width:18ch;">Old memories, made vivid again.</h2>
+        <p class="t-sub" style="margin-top:0.8rem; max-width:48ch;">Vintage restoration, colorizing, crisp upscaling — and image-animation clips that bring a still moment back to life.</p>
+
+        <!-- Slide-to-Revive slider -->
+        <div style="margin-top:2rem; max-width:560px;">
+          <div class="revive-slider">
+            <div class="slider-container">
+              <div class="slider-after">
+                <img src="assets/images/nadezhda_alliluyeva_1920s.jpg" alt="Restored portrait" loading="lazy">
+              </div>
+              <div class="slider-before">
+                <img src="assets/images/nadezhda_alliluyeva_1920s.jpg" alt="Original faded photo" loading="lazy">
+              </div>
+              <div class="slider-handle"></div>
+              <span class="slider-label-before">Before</span>
+              <span class="slider-label-after">After</span>
+            </div>
+            <div class="slider-caption">
+              <h4>Vintage Photo Restoration</h4>
+              <p>Drag the slider to reveal the transformation. Real 1920s portrait restored to recover lost detail.</p>
+              <a class="slider-cta" href="image/index.html">Explore Image services →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-hint">Scroll</div>
+    </section>
+
+    <!-- 3. Showcase: Video -->
+    <section class="snap-section">
+      <div class="container inner">
+        <div class="t-label" style="margin-bottom:0.6rem;">Video</div>
+        <h2 class="t-heading" style="max-width:20ch;">Videos built to stop the scroll.</h2>
+        <p class="t-sub" style="margin-top:0.8rem; max-width:48ch;">30–60s vertical spots for social, plus horizontal long-form edits at 1080p with 2K &amp; 4K upgrades.</p>
+
+        <div class="showcase-video-grid" style="margin-top:2rem;">
+                  <div class="video-player vertical" data-video-player data-src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" data-vertical="true" style="max-width:200px;"></div>
+                  <div class="video-player" data-video-player data-src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" data-poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"></div>
+                  <div class="video-player vertical" data-video-player data-src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" data-vertical="true" style="max-width:200px;"></div>
+                </div>
+
+        <div style="margin-top:2rem; display:flex; gap:0.75rem; flex-wrap:wrap;">
+          <a class="btn btn-secondary" href="video/index.html">Video Services →</a>
+        </div>
+      </div>
+      <div class="scroll-hint">Scroll</div>
+    </section>
+
+    <!-- 4. Showcase: Music & Games -->
+    <section class="snap-section">
+      <div class="container inner">
+        <div class="t-label" style="margin-bottom:0.6rem;">Music &amp; Games</div>
+        <h2 class="t-heading" style="max-width:20ch;">Sound that sticks. Assets ready to play.</h2>
+        <p class="t-sub" style="margin-top:0.8rem; max-width:48ch;">Jingles, theme songs, royalty-free music &amp; SFX — plus 3D models from your images, textures, and custom game asset packs.</p>
+
+        <div class="showcase-audio-3d" style="margin-top:2rem;">
+          <div class="showcase-player">
+            <div class="player-art">🎵</div>
+            <div class="player-info">
+              <div class="player-title">Brand Jingle — 8s Hook</div>
+              <div class="player-meta">Catchy, memorable, yours to keep</div>
+              <div class="player-wave">
+                <span style="height:40%"></span><span style="height:70%"></span><span style="height:30%"></span><span style="height:85%"></span><span style="height:50%"></span><span style="height:75%"></span><span style="height:40%"></span><span style="height:60%"></span><span style="height:35%"></span><span style="height:80%"></span><span style="height:45%"></span><span style="height:65%"></span><span style="height:30%"></span><span style="height:55%"></span><span style="height:40%"></span>
+              </div>
+            </div>
+          </div>
+          <div class="showcase-3d-viewer">
+            <span class="viewer-badge">BYO Image → 3D</span>
+            <div class="viewer-icon">🧊</div>
+            <div class="viewer-label">3D Model Preview</div>
+            <div class="viewer-sub">Bring your own reference image and get a 3D model, with optional rigging.</div>
+          </div>
+        </div>
+
+        <div style="margin-top:2rem; display:flex; gap:0.75rem; flex-wrap:wrap;">
+          <a class="btn btn-secondary" href="music/index.html">Music &amp; Sound →</a>
+          <a class="btn btn-secondary" href="games/index.html">Game Assets →</a>
+        </div>
+      </div>
+      <div class="scroll-hint">Scroll</div>
+    </section>
+
+    <!-- 5. Story + Explore funnel -->
+    <section class="snap-section" id="explore">
+      <div class="container inner center">
+        <div class="t-label" style="margin-bottom:0.6rem;">Our story, simply</div>
+        <h2 class="t-heading">We make the intangible, tangible.</h2>
+        <p class="t-sub" style="margin-top:0.8rem; max-width:52ch;">A small studio obsessed with craft you can actually show off. You bring the idea or the memory — we shape it into something you can post, play, present, or keep.</p>
+
+        <div class="category-grid" style="text-align:left; margin-top:2.5rem;">
+          <a class="cat-card" href="image/index.html">
+            <div class="icon">🖼️</div>
+            <h3>Image</h3>
+            <p>Restore, colorize, enhance, upscale &amp; animate memories.</p>
+            <span class="go">View packages →</span>
+          </a>
+          <a class="cat-card" href="video/index.html">
+                      <div class="icon">🎬</div>
+                      <h3>Video</h3>
+                      <p>Short-form, long-form, BYOV upscaling, style transfer & more.</p>
+                      <span class="go">View packages →</span>
+                    </a>
+          <a class="cat-card" href="music/index.html">
+            <div class="icon">🎵</div>
+            <h3>Music &amp; Sound</h3>
+            <p>Jingles, themes, royalty-free music &amp; SFX packs.</p>
+            <span class="go">View packages →</span>
+          </a>
+          <a class="cat-card" href="games/index.html">
+            <div class="icon">🎮</div>
+            <h3>Games</h3>
+            <p>3D models, rigs, textures, audio &amp; custom asset packs.</p>
+            <span class="go">View packages →</span>
+          </a>
+        </div>
+
+        <div class="steps-mini" style="margin-top:2.5rem;">
+          <div class="step-mini"><div class="n">01 · Pick</div><h4>Choose a package</h4><p>Each category has clear, individual options.</p></div>
+          <div class="step-mini"><div class="n">02 · Create</div><h4>We craft it</h4><p>Hands-on production in scheduled quality slots.</p></div>
+          <div class="step-mini"><div class="n">03 · Use</div><h4>Ready to share</h4><p>Delivered in formats you can post or drop in.</p></div>
+        </div>
+
+        <p style="margin-top:2.5rem;">
+          <a class="btn btn-primary" href="mailto:hello@appyux.studio?subject=Project%20Inquiry%20-%20Appy-UX%20Studio">Start a project</a>
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <script src="assets/slider.js"></script>
+  <script src="assets/media-players.js"></script>
+<script src="assets/contact-modal.js"></script>
+
+  <!-- Testimonials Section (Hidden until real content available) -->
+  <section class="section" id="testimonials" style="display: none;">
+    <div class="section-head">
+      <h2>What Our Clients Say</h2>
+      <p class="muted">Real feedback from real projects.</p>
+    </div>
+    <div class="grid grid-3" id="testimonials-grid">
+      <!-- Testimonials will be dynamically populated when available -->
+      <!-- Template:
+      <article class="card">
+        <div class="testimonial-quote">"Quote here"</div>
+        <div class="testimonial-author">— Name, Company</div>
+        <div class="testimonial-rating">★★★★★</div>
+      </article>
+      -->
+    </div>
+    <p class="note" style="margin-top: 1rem; text-align: center; color: #666;">
+      We're building our portfolio. Be one of our first clients and get a special rate.
+    </p>
+  </section>
+  <footer>
+    <div class="container footer-row">
+      <div class="brand"><span class="brand-mark">A</span><span>Appy-UX Studio</span></div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="image/index.html">Image</a>
+        <a href="video/index.html">Video</a>
+        <a href="music/index.html">Music</a>
+        <a href="games/index.html">Games</a>
+        <a href="shop/index.html">Shop</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

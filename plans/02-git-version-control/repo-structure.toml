@@ -1,0 +1,65 @@
+# Repository Structure Configuration
+
+[meta]
+version = "1.0"
+last_updated = "2026-11-16"
+
+# ── Organization ──
+[org]
+name = "appy-ux"
+platform = "github"  # or gitlab, gitea
+default_branch = "main"
+
+# ── Agency Core Repository ──
+[[repo]]
+name = "agency-core"
+description = "Shared templates, boilerplates, and tools"
+visibility = "private"
+default_branch = "main"
+path = "/opt/agency/core"
+
+[[repo]]
+name = "appy-ux-studio"
+description = "Main agency website, client portal, admin dashboard"
+visibility = "private"
+default_branch = "main"
+path = "/opt/agency/projects/agency/appy-ux-studio"
+
+# ── Client Repositories ──
+# Each client gets their own repository
+# [[repo]]
+# name = "client-alpha"
+# description = "Client Alpha's project"
+# visibility = "private"
+# default_branch = "main"
+# path = "/opt/agency/projects/clients/client-alpha"
+# template = "agency-core/templates/project-template"
+
+# ── Personal Projects ──
+# [[repo]]
+# name = "personal-project-x"
+# description = "Owner's personal project"
+# visibility = "private"
+# default_branch = "main"
+# path = "/opt/agency/projects/personal/project-x"
+
+# ── Repository Template ──
+[template]
+name = "project-template"
+source = "agency-core/templates/project-template"
+includes = [
+    "README.md",
+    ".env.example",
+    ".gitignore",
+    "backend/",
+    "frontend/",
+    "docs/",
+]
+
+# ── Access Control ──
+[access]
+owner = "full"
+admin = "write"
+client = "read"
+viewer = "read"
+ci_bot = "write"

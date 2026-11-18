@@ -1,0 +1,18 @@
+{
+  "id": "codegen-001",
+  "category": "code_generation",
+  "difficulty": "medium",
+  "name": "FastAPI CRUD Endpoint",
+  "prompt": "Create a FastAPI endpoint for a 'Product' resource with CRUD operations (Create, Read, Update, Delete). Include: POST /products (create), GET /products (list), GET /products/{id} (get one), PUT /products/{id} (update), DELETE /products/{id} (delete). Use Pydantic models for validation. Return proper HTTP status codes. Include error handling for not-found cases.",
+  "expected": {
+    "must_contain": ["@app.post", "@app.get", "@app.put", "@app.delete", "class Product", "HTTPException", "status_code"],
+    "must_not_contain": ["TODO", "pass", "NotImplemented"],
+    "language": "python"
+  },
+  "scoring": {
+    "correctness_weight": 0.4,
+    "completeness_weight": 0.2,
+    "quality_weight": 0.2,
+    "speed_weight": 0.2
+  }
+}

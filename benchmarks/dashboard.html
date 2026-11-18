@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Model Benchmark Dashboard — Appy-UX Studio</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  --bg: #0a0a0a;
+  --card: #141414;
+  --border: #262626;
+  --text: #fafafa;
+  --muted: #737373;
+  --accent: #3b82f6;
+  --green: #22c55e;
+  --yellow: #eab308;
+  --red: #ef4444;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); padding: 24px; }
+h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+.subtitle { color: var(--muted); font-size: 14px; margin-bottom: 32px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-bottom: 32px; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+.card h3 { font-size: 16px; margin-bottom: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.score { font-size: 48px; font-weight: 800; }
+.score.green { color: var(--green); }
+.score.yellow { color: var(--yellow); }
+.score.red { color: var(--red); }
+.model-name { font-size: 20px; font-weight: 600; margin-bottom: 4px; }
+.model-meta { color: var(--muted); font-size: 12px; margin-bottom: 16px; }
+.metric { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); }
+.metric:last-child { border-bottom: none; }
+.metric-label { color: var(--muted); }
+.metric-value { font-weight: 600; }
+.cat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 16px; }
+.cat-card { background: #1a1a1a; border-radius: 8px; padding: 12px; }
+.cat-name { font-size: 12px; color: var(--muted); text-transform: uppercase; }
+.cat-score { font-size: 24px; font-weight: 700; margin-top: 4px; }
+.chart-container { position: relative; height: 300px; margin-top: 16px; }
+table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+th { color: var(--muted); font-size: 12px; text-transform: uppercase; }
+td { font-size: 14px; }
+.winner { background: rgba(34, 197, 94, 0.1); }
+.loading { text-align: center; padding: 60px; color: var(--muted); }
+.btn { background: var(--accent); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 14px; }
+.btn:hover { opacity: 0.9; }
+.controls { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+<h1>Model Benchmark Dashboard</h1>
+<p class="subtitle">Appy-UX Studio — Coding Model Performance Comparison</p>
+
+<div class="controls">
+  <button class="btn" onclick="loadResults()">Refresh Results</button>
+  <button class="btn" onclick="exportJSON()">Export JSON</button>
+  <button class="btn" onclick="exportMarkdown()">Export Markdown</button>
+</div>
+
+<div id="summary" class="grid"></div>
+
+<div class="card">
+  <h3>Category Comparison</h3>
+  <div class="chart-container">
+    <canvas id="catChart"></canvas>
+  </div>
+</div>
+
+<div class="card" style="margin-top: 16px;">
+  <h3>Speed vs Quality</h3>
+  <div class="chart-container">
+    <canvas id="scatterChart"></canvas>
+  </div>
+</div>
+
+<div class="card" style="margin-top: 16px;">
+  <h3>Detailed Results</h3>
+  <div id="details"></div>
+</div>
+
+<script>
+let reportData = null;
+
+async function loadResults() {
+  try {
+    const resp = await fetch('results/benchmark_report.json');
+    reportData = await resp.json();
+    renderSummary();
+    renderCharts();
+    renderDetails();
+  } catch (e) {
+    document.getElementById('summary').innerHTML = '<div class="loading">No results yet. Run benchmark_runner.py first.</div>';
+  }
+}
+
+function scoreClass(score) {
+  if (score >= 90) return 'green';
+  if (score >= 70) return 'yellow';
+  return 'red';
+}
+
+function renderSummary() {
+  const container = document.getElementById('summary');
+  container.innerHTML = '';
+  
+  const models = Object.entries(reportData.models).sort((a, b) => b[1].overall_score - a[1].overall_score);
+  
+  models.forEach(([name, data]) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <div class="model-name">${name}</div>
+      <div class="model-meta">${data.tests_passed} tests passed | ${data.avg_tok_per_sec} tok/s avg | ${data.total_time}s total</div>
+      <div class="score ${scoreClass(data.overall_score)}">${data.overall_score}</div>
+      <div class="cat-grid">
+        ${Object.entries(data.category_scores).map(([cat, score]) => `
+          <div class="cat-card">
+            <div class="cat-name">${cat.replace(/_/g, ' ')}</div>
+            <div class="cat-score ${scoreClass(score)}">${score}</div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+function renderCharts() {
+  const models = Object.keys(reportData.models);
+  const categories = Object.keys(Object.values(reportData.models)[0].category_scores);
+  
+  // Category comparison bar chart
+  const ctx1 = document.getElementById('catChart').getContext('2d');
+  new Chart(ctx1, {
+    type: 'bar',
+    data: {
+      labels: categories.map(c => c.replace(/_/g, ' ')),
+      datasets: models.map((m, i) => ({
+        label: m,
+        data: categories.map(c => reportData.models[m].category_scores[c]),
+        backgroundColor: `hsla(${i * 60}, 70%, 50%, 0.7)`,
+      }))
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: { y: { beginAtZero: true, max: 100 } }
+    }
+  });
+  
+  // Speed vs Quality scatter
+  const ctx2 = document.getElementById('scatterChart').getContext('2d');
+  new Chart(ctx2, {
+    type: 'scatter',
+    data: {
+      datasets: models.map((m, i) => ({
+        label: m,
+        data: [{ x: reportData.models[m].avg_tok_per_sec, y: reportData.models[m].overall_score }],
+        backgroundColor: `hsla(${i * 60}, 70%, 50%, 0.8)`,
+        pointRadius: 8,
+      }))
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        x: { title: { display: true, text: 'Speed (tok/s)' } },
+        y: { title: { display: true, text: 'Quality Score' }, min: 0, max: 100 }
+      }
+    }
+  });
+}
+
+function renderDetails() {
+  const container = document.getElementById('details');
+  const models = Object.entries(reportData.models).sort((a, b) => b[1].overall_score - a[1].overall_score);
+  
+  let html = '<table><thead><tr><th>Rank</th><th>Model</th><th>Overall</th><th>Speed (tok/s)</th><th>Time (s)</th><th>Tests</th></tr></thead><tbody>';
+  models.forEach(([name, data], i) => {
+    html += `<tr class="${i === 0 ? 'winner' : ''}">
+      <td>${i + 1}</td>
+      <td>${name}</td>
+      <td class="${scoreClass(data.overall_score)}">${data.overall_score}</td>
+      <td>${data.avg_tok_per_sec}</td>
+      <td>${data.total_time}</td>
+      <td>${data.tests_passed}/${data.tests_passed + data.tests_failed}</td>
+    </tr>`;
+  });
+  html += '</tbody></table>';
+  container.innerHTML = html;
+}
+
+function exportJSON() {
+  if (!reportData) return;
+  const blob = new Blob([JSON.stringify(reportData, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'benchmark_report.json';
+  a.click();
+}
+
+function exportMarkdown() {
+  if (!reportData) return;
+  let md = '# Model Benchmark Report\n\n';
+  md += `Generated: ${reportData.timestamp}\n\n`;
+  md += '## Summary\n\n';
+  md += '| Model | Overall | Speed (tok/s) | Time (s) |\n';
+  md += '|-------|---------|---------------|----------|\n';
+  Object.entries(reportData.models).sort((a, b) => b[1].overall_score - a[1].overall_score).forEach(([name, data]) => {
+    md += `| ${name} | ${data.overall_score} | ${data.avg_tok_per_sec} | ${data.total_time} |\n`;
+  });
+  md += '\n## Category Scores\n\n';
+  const cats = Object.keys(Object.values(reportData.models)[0].category_scores);
+  md += '| Model | ' + cats.join(' | ') + ' |\n';
+  md += '|-------|' + cats.map(() => '---').join('|') + '|\n';
+  Object.entries(reportData.models).forEach(([name, data]) => {
+    md += `| ${name} | ` + cats.map(c => data.category_scores[c]).join(' | ') + ' |\n';
+  });
+  const blob = new Blob([md], { type: 'text/markdown' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'benchmark_report.md';
+  a.click();
+}
+
+loadResults();
+</script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Showcase — Appy-UX Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/media-players.css">
+  <style>
+    .showcase-section { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+    .showcase-section h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+    .showcase-section p { color: #a1a1a6; margin-bottom: 2rem; font-size: 0.95rem; }
+    .player-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem; }
+    .player-grid.single { grid-template-columns: 1fr; }
+    .player-label { font-size: 0.75rem; color: #6e6e73; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; font-weight: 600; }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; backdrop-filter: blur(20px); background: rgba(10,10,15,0.8); border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-weight: 700; font-size: 18px; color: #f5f5f7; text-decoration: none; }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { color: #a1a1a6; font-size: 14px; font-weight: 500; text-decoration: none; }
+    .nav-links a:hover { color: #f5f5f7; }
+    @media (max-width: 768px) { .player-grid { grid-template-columns: 1fr; } }
+  </style>
+<link rel="stylesheet" href="assets/contact-modal.css">
+</head>
+<body style="background: #000; color: #f5f5f7; font-family: 'Inter', sans-serif; margin: 0; padding-top: 56px;">
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Appy-UX Studio</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="image/index.html">Image</a>
+        <a href="video/index.html">Video</a>
+        <a href="music/index.html">Music</a>
+        <a href="games/index.html">Games</a>
+        <a href="shop/index.html">Shop</a>
+        <a href="media-showcase.html" style="color: #f5f5f7;">Media Demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section style="padding: 6rem 2rem 3rem; text-align: center; max-width: 800px; margin: 0 auto;">
+    <h1 style="font-size: 3rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 1rem;">Media Player Showcase</h1>
+    <p style="color: #a1a1a6; font-size: 1.1rem;">Video, audio, and 3D viewers — all asset-ready for client deliverables.</p>
+  </section>
+
+  <!-- Video Players -->
+  <section class="showcase-section">
+    <h2>Video Players</h2>
+    <p>Custom HTML5 video player with controls. Supports horizontal (16:9) and vertical (9:16) formats.</p>
+    <div class="player-grid">
+      <div>
+        <div class="player-label">Horizontal Video (16:9)</div>
+        <div class="video-player" data-video-player data-src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" data-poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"></div>
+      </div>
+      <div>
+        <div class="player-label">Vertical Video (9:16)</div>
+        <div class="video-player vertical" data-video-player data-src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" data-vertical="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Audio Players -->
+  <section class="showcase-section" style="background: #0a0a0f;">
+    <h2>Audio Players</h2>
+    <p>Custom audio player with waveform visualization. Perfect for music, soundtracks, and SFX previews.</p>
+    <div class="player-grid">
+      <div>
+        <div class="player-label">Ambient Track</div>
+        <div class="audio-player" data-audio-player data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" data-title="Ambient Dreams" data-artist="Appy-UX Studio" data-artwork=""></div>
+      </div>
+      <div>
+        <div class="player-label">Electronic Beat</div>
+        <div class="audio-player" data-audio-player data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" data-title="Neon Pulse" data-artist="Appy-UX Studio"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3D Viewer -->
+  <section class="showcase-section">
+    <h2>3D Model Viewer</h2>
+    <p>Interactive 3D viewer with orbit controls. Supports GLB/GLTF models. Drag to rotate, scroll to zoom.</p>
+    <div class="player-grid single">
+      <div>
+        <div class="player-label">3D Model (GLB)</div>
+        <div class="viewer-3d" data-3d-viewer data-src="https://modelviewer.dev/shared-assets/models/Astronaut.glb" data-bg="#0a0a0f" style="max-width: 600px; margin: 0 auto;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Media Grid -->
+  <section class="showcase-section" style="background: #0a0a0f;">
+    <h2>Media Grid</h2>
+    <p>Card-based media gallery for showcasing multiple assets.</p>
+    <div class="media-grid">
+      <div class="media-card">
+        <div class="mc-preview">
+          <img src="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217" alt="Video thumbnail">
+          <div class="mc-play"><button class="mc-play-btn">▶</button></div>
+        </div>
+        <div class="mc-info">
+          <div class="mc-title">Restored Portrait Video</div>
+          <div class="mc-meta">Short-form • 30s • MP4</div>
+        </div>
+      </div>
+      <div class="media-card">
+        <div class="mc-preview" style="background: linear-gradient(135deg, #1a1a2e, #16213e); display: flex; align-items: center; justify-content: center;">
+          <span style="font-size: 40px;">🎵</span>
+          <div class="mc-play"><button class="mc-play-btn">▶</button></div>
+        </div>
+        <div class="mc-info">
+          <div class="mc-title">Ambient Soundtrack</div>
+          <div class="mc-meta">Music • 2:30 • MP3</div>
+        </div>
+      </div>
+      <div class="media-card">
+        <div class="mc-preview" style="background: linear-gradient(135deg, #0a0a0f, #1a1a2e); display: flex; align-items: center; justify-content: center;">
+          <span style="font-size: 40px;">🧊</span>
+          <div class="mc-play"><button class="mc-play-btn">▶</button></div>
+        </div>
+        <div class="mc-info">
+          <div class="mc-title">3D Character Model</div>
+          <div class="mc-meta">Game Asset • GLB • Rigged</div>
+        </div>
+      </div>
+      <div class="media-card">
+        <div class="mc-preview">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/PNG_transparency_demonstration_1.png/300px-PNG_transparency_demonstration_1.png" alt="Image">
+          <div class="mc-play"><button class="mc-play-btn">🔍</button></div>
+        </div>
+        <div class="mc-info">
+          <div class="mc-title">Colorized Photo</div>
+          <div class="mc-meta">Image • 4K • PNG</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close">&times;</button>
+    <img src="" alt="">
+  </div>
+
+  <script src="assets/media-players.js"></script>
+  <script>
+    // Lightbox trigger
+    document.querySelectorAll('[data-lightbox]').forEach(el => {
+      el.addEventListener('click', () => {
+        document.querySelector('.lightbox img').src = el.dataset.lightbox;
+        document.querySelector('.lightbox').classList.add('open');
+      });
+    });
+    document.querySelector('.lightbox .lb-close').addEventListener('click', () => {
+      document.querySelector('.lightbox').classList.remove('open');
+    });
+    document.querySelector('.lightbox').addEventListener('click', (e) => {
+      if (e.target.classList.contains('lightbox')) e.target.classList.remove('open');
+    });
+  </script>
+<script src="assets/contact-modal.js"></script>
+</body>
+</html>

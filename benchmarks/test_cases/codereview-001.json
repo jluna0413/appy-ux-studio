@@ -1,0 +1,18 @@
+{
+  "id": "codereview-001",
+  "category": "code_review",
+  "difficulty": "medium",
+  "name": "SQL Injection Detection",
+  "prompt": "Review this Python code for security issues:\n\n```python\ndef get_user(username):\n    query = f\"SELECT * FROM users WHERE username = '{username}'\"\n    cursor.execute(query)\n    return cursor.fetchone()\n\ndef delete_user(user_id):\n    os.system(f\"rm -rf /data/users/{user_id}\")\n    db.execute(f\"DELETE FROM users WHERE id = {user_id}\")\n```\n\nIdentify all security vulnerabilities and suggest fixes.",
+  "expected": {
+    "must_contain": ["sql injection", "os.system", "parameterized", "sanitize", "shell injection"],
+    "must_not_contain": ["looks good", "no issues", "safe"],
+    "language": "python"
+  },
+  "scoring": {
+    "correctness_weight": 0.4,
+    "completeness_weight": 0.2,
+    "quality_weight": 0.2,
+    "speed_weight": 0.2
+  }
+}

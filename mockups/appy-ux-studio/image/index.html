@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Services | Appy-UX Studio</title>
+  <meta name="description" content="Vintage restoration, colorizing, enhancement, upscaling, and image-animation clips — bring old memories to life with Appy-UX Studio.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Azeret+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+<link rel="stylesheet" href="../assets/contact-modal.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="../index.html" class="brand"><span class="brand-mark">A</span><span>Appy-UX Studio</span></a>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" onclick="this.nextElementSibling.classList.toggle('open')">☰</button>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../image/index.html" class="active">Image</a>
+        <a href="../video/index.html">Video</a>
+        <a href="../music/index.html">Music</a>
+        <a href="../games/index.html">Games</a>
+              <a href="../shop/index.html">Shop</a>
+      </nav>
+      <div class="nav-cta"><a class="btn btn-primary" href="#packages">View packages</a></div>
+    </div>
+  </header>
+
+  <main class="page-main" id="main">
+    <div class="container">
+      <div class="page-hero">
+        <div class="breadcrumb"><a href="../index.html">Home</a> / Image</div>
+        <div class="t-label" style="margin-bottom:0.5rem;">Category · Image</div>
+        <h1>Restore, enhance, and bring memories to life.</h1>
+        <p class="t-sub">From faded vintage photos to vivid, moving moments — choose the exact image service you need. Each option below is its own package with clear deliverables.</p>
+        <div class="chip-row" style="margin-top:1rem;">
+          <span class="chip">Vintage restoration</span><span class="chip">Colorizing</span><span class="chip">Overall enhancing</span><span class="chip">Upscaling</span><span class="chip">Image-animation clips</span>
+        </div>
+      </div>
+
+      <!-- Slide-to-Revive: Interactive before/after sliders -->
+      <section class="section" style="padding-top:0;">
+        <div class="section-head">
+          <h2>Slide to revive</h2>
+          <p class="muted">Drag the slider to reveal the transformation. Real results from real photos.</p>
+        </div>
+        <div class="revive-gallery">
+          <div class="revive-slider" data-service="Vintage Restoration">
+                      <div class="slider-container">
+                        <div class="slider-after">
+                          <picture><source srcset="../assets/images/original_vintage_restored.webp" type="image/webp"><img loading="eager" src="../assets/images/original_vintage_restored.png" srcset="../assets/images/original_vintage_restored.webp 1x" alt="Restored portrait" loading="lazy"></picture>
+                        </div>
+                        <div class="slider-before">
+                          <picture><source srcset="../assets/images/original_vintage.webp" type="image/webp"><img src="../assets/images/original_vintage.png" srcset="../assets/images/original_vintage.webp 1x" alt="Original faded photo" loading="lazy"></picture>
+                        </div>
+                        <div class="slider-handle"></div>
+                        <span class="slider-label-before">Before</span>
+                        <span class="slider-label-after">After</span>
+                      </div>
+                      <div class="slider-caption">
+                        <h4>Face Restoration (GFPGAN)</h4>
+                        <p>1930s portrait — restored to recover facial detail, reduce noise, and improve clarity using AI.</p>
+                        <a class="slider-cta" href="#packages">View packages →</a>
+                      </div>
+                    </div>
+
+                    <div class="revive-slider" data-service="Colorizing">
+                      <div class="slider-container">
+                        <div class="slider-after">
+                          <picture><source srcset="../assets/images/original_vintage_colorized.webp" type="image/webp"><img src="../assets/images/original_vintage_colorized.png" srcset="../assets/images/original_vintage_colorized.webp 1x" alt="Colorized portrait" loading="lazy"></picture>
+                        </div>
+                        <div class="slider-before">
+                          <picture><source srcset="../assets/images/original_vintage.webp" type="image/webp"><img src="../assets/images/original_vintage.png" srcset="../assets/images/original_vintage.webp 1x" alt="Original B&W photo" loading="lazy"></picture>
+                        </div>
+                        <div class="slider-handle"></div>
+                        <span class="slider-label-before">Before</span>
+                        <span class="slider-label-after">After</span>
+                      </div>
+                      <div class="slider-caption">
+                        <h4>Photo Colorization (DDColor)</h4>
+                        <p>Black & white 1930s portrait — colorized with natural skin tones, clothing, and background colors.</p>
+                        <a class="slider-cta" href="#packages">View packages →</a>
+                      </div>
+                    </div>
+
+          <div class="revive-slider theater" data-service="Overall Enhancement">
+            <div class="slider-container">
+              <div class="slider-after">
+                <img src="../assets/images/inupiat_family_1929.jpg" alt="Enhanced photo" loading="lazy">
+              </div>
+              <div class="slider-before">
+                <img src="../assets/images/inupiat_family_1929.jpg" alt="Original low-contrast photo" loading="lazy">
+              </div>
+              <div class="slider-handle"></div>
+              <span class="slider-label-before">Before</span>
+              <span class="slider-label-after">After</span>
+            </div>
+            <div class="slider-caption">
+              <h4>Overall Enhancement</h4>
+              <p>Low-contrast 1929 scan — brightened, sharpened, noise-reduced for clarity.</p>
+              <a class="slider-cta" href="#packages">View packages →</a>
+            </div>
+          </div>
+
+          <div class="revive-slider theater" data-service="Upscaling">
+            <div class="slider-container">
+              <div class="slider-after">
+                <img src="../assets/images/marie_curie_1920s.jpg" alt="Upscaled portrait" loading="lazy">
+              </div>
+              <div class="slider-before">
+                <img src="../assets/images/marie_curie_1920s.jpg" alt="Original small photo" loading="lazy">
+              </div>
+              <div class="slider-handle"></div>
+              <span class="slider-label-before">Before</span>
+              <span class="slider-label-after">After</span>
+            </div>
+            <div class="slider-caption">
+              <h4>Image Upscaling</h4>
+              <p>Small 1920s photo — enlarged 4x with crisp, detail-preserving resolution.</p>
+              <a class="slider-cta" href="#packages">View packages →</a>
+            </div>
+          </div>
+        </div>
+        <p class="t-sub" style="margin-top:1.5rem; font-size:0.8rem; color:var(--muted-cool);">* Sliders currently show the original image with a simulated "before" treatment (grayscale, faded, low contrast). Real before/after comparisons will replace these once images are processed through our restoration pipeline on our production workstation.</p>
+      </section>
+
+      <!-- Image gallery strip -->
+      <section class="section" style="padding-top:0;">
+        <div class="section-head">
+          <h2>More samples</h2>
+          <p class="muted">Additional vintage images available for restoration, colorization, and animation demos.</p>
+        </div>
+        <div class="showcase-strip">
+          <div class="showcase-strip-item">
+            <img src="../assets/images/ts_eliot_1920.jpg" alt="T.S. Eliot 1920" style="width:100%;height:100%;object-fit:cover;opacity:0.6;">
+            <span class="strip-label">T.S. Eliot · 1920</span>
+          </div>
+          <div class="showcase-strip-item">
+            <img src="../assets/images/conan_doyle_family_1923.jpg" alt="Conan Doyle Family 1923" style="width:100%;height:100%;object-fit:cover;opacity:0.6;">
+            <span class="strip-label">Conan Doyle · 1923</span>
+          </div>
+          <div class="showcase-strip-item">
+            <span class="strip-icon">🎬</span>
+            <span class="strip-label">Animation sample</span>
+          </div>
+          <div class="showcase-strip-item">
+            <span class="strip-icon">📦</span>
+            <span class="strip-label">Bundle sample</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="packages">
+        <div class="section-head">
+          <h2>Image packages</h2>
+          <p class="muted">Pick one service, or combine packages for a complete transformation. Final quotes depend on source condition and count.</p>
+        </div>
+        <div class="grid grid-3">
+          <article class="card package">
+            <div class="tag">Restoration</div>
+            <h3>Vintage Photo Restoration</h3>
+            <div class="price"><small>Starting at</small> $29 <small>/ image</small></div>
+            <p>Repair damage and revive aged or worn photographs while preserving their character.</p>
+            <div class="meta-row"><span class="pill">Scratch &amp; tear repair</span><span class="pill">Fade recovery</span><span class="pill">24–48 hr slot</span></div>
+            <ul class="features">
+              <li>Remove scratches, dust, stains, and creases</li>
+              <li>Recover faded detail and tonal balance</li>
+              <li>Careful cleanup that keeps the original feel</li>
+              <li>High-resolution restored image file</li>
+            </ul>
+            <a class="btn btn-secondary" href="mailto:hello@appyux.studio?subject=Image%20-%20Vintage%20Restoration">Choose Restoration</a>
+          </article>
+
+          <article class="card package">
+            <div class="tag">Color</div>
+            <h3>Photo Colorization</h3>
+            <div class="price"><small>Starting at</small> $25 <small>/ image</small></div>
+            <p>Add natural, believable color to black &amp; white or sepia photos.</p>
+            <div class="meta-row"><span class="pill">B&amp;W → Color</span><span class="pill">Natural tones</span><span class="pill">24–48 hr slot</span></div>
+            <ul class="features">
+              <li>Thoughtful colorization of people, scenes, and objects</li>
+              <li>Balanced, realistic skin tones and backgrounds</li>
+              <li>Optional light enhancement pass</li>
+              <li>Delivered as a full-color image file</li>
+            </ul>
+            <a class="btn btn-secondary" href="mailto:hello@appyux.studio?subject=Image%20-%20Photo%20Colorizing">Choose Colorizing</a>
+          </article>
+
+          <article class="card package">
+            <div class="tag">Enhance</div>
+            <h3>Overall Enhancement</h3>
+            <div class="price"><small>Starting at</small> $20 <small>/ image</small></div>
+            <p>Improve clarity, lighting, and detail so your photo looks its best.</p>
+            <div class="meta-row"><span class="pill">Clarity &amp; light</span><span class="pill">Detail boost</span><span class="pill">24 hr slot</span></div>
+            <ul class="features">
+              <li>Exposure, contrast, and color correction</li>
+              <li>Sharpening and noise cleanup where helpful</li>
+              <li>Face/detail refinement for a cleaner look</li>
+              <li>Web- and print-ready image export</li>
+            </ul>
+            <a class="btn btn-secondary" href="mailto:hello@appyux.studio?subject=Image%20-%20Overall%20Enhancement">Choose Enhancement</a>
+          </article>
+
+          <article class="card package">
+            <div class="tag">Resolution</div>
+            <h3>Image Upscaling</h3>
+            <div class="price"><small>Starting at</small> $29 <small>/ image</small></div>
+            <p>Increase resolution for crisper detail on small or low-quality images.</p>
+            <div class="meta-row"><span class="pill">Higher resolution</span><span class="pill">Sharper detail</span><span class="pill">24 hr slot</span></div>
+            <ul class="features">
+              <li>Upscale for print, web, or display use</li>
+              <li>Detail-preserving enlargement</li>
+              <li>Great for old scans and small source files</li>
+              <li>Delivered as a high-resolution image</li>
+            </ul>
+            <a class="btn btn-secondary" href="mailto:hello@appyux.studio?subject=Image%20-%20Upscaling">Choose Upscaling</a>
+          </article>
+
+          <article class="card package featured">
+            <span class="badge">Bring memories to life</span>
+            <div class="tag">Motion</div>
+            <h3>Image-Animation Clip</h3>
+            <div class="price"><small>Starting at</small> $39 <small>/ clip</small></div>
+            <p>Turn a still photo into a short, moving clip — a subtle, emotional way to relive a moment.</p>
+            <div class="meta-row"><span class="pill">Still → Motion</span><span class="pill">Short clip (MP4)</span><span class="pill">24–48 hr slot</span></div>
+            <ul class="features">
+              <li>Animate a portrait or scene from a single image</li>
+              <li>Gentle, natural motion for a lifelike feel</li>
+              <li>Optional pre-animation restore/enhance add-on</li>
+              <li>Delivered as a shareable video clip (MP4)</li>
+            </ul>
+            <a class="btn btn-primary" href="mailto:hello@appyux.studio?subject=Image%20-%20Image%20Animation%20Clip">Choose Animation</a>
+          </article>
+
+          <article class="card package">
+            <div class="tag">Bundle</div>
+            <h3>Memory Revival Bundle</h3>
+            <div class="price"><small>Starting at</small> $79 <small>/ image</small></div>
+            <p>The full treatment: restore, colorize, enhance, upscale — and optionally animate.</p>
+            <div class="meta-row"><span class="pill">Multi-step restore</span><span class="pill">Best value combo</span><span class="pill">48–72 hr slot</span></div>
+            <ul class="features">
+              <li>Restoration + colorizing + enhancement + upscale</li>
+              <li>One cohesive, polished final result</li>
+              <li>Add an image-animation clip at a bundle rate</li>
+              <li>Ideal for cherished family or vintage photos</li>
+            </ul>
+            <a class="btn btn-secondary" href="mailto:hello@appyux.studio?subject=Image%20-%20Memory%20Revival%20Bundle">Choose Bundle</a>
+          </article>
+        </div>
+        <p class="note"><strong>Notes:</strong> Starting prices are baselines — final quotes depend on image condition, complexity, and quantity. Multi-image discounts available. Heavy processing runs in scheduled quality slots.</p>
+      </section>
+
+
+      <!-- ═══════════════════════════════════════════════════════ -->
+      <!-- FAQ                                                     -->
+      <!-- ═══════════════════════════════════════════════════════ -->
+      <section class="section" id="faq">
+        <div class="section-head">
+          <h2>Frequently Asked Questions</h2>
+          <p class="muted">Common questions about our services, process, and pricing.</p>
+        </div>
+        <div style="max-width: 800px;">
+          <details style="margin-bottom: 1rem; padding: 1rem; background: #111; border: 1px solid #222; border-radius: 8px;">
+            <summary style="cursor: pointer; font-weight: 600; color: #f5f5f7;">How do I get started?</summary>
+            <p style="margin-top: 0.5rem; color: #888; font-size: 0.9rem;">Choose a service package that fits your needs, click "Choose" to open our inquiry form, and tell us about your project. We'll get back to you within 24 hours with a quote and timeline.</p>
+          </details>
+          <details style="margin-bottom: 1rem; padding: 1rem; background: #111; border: 1px solid #222; border-radius: 8px;">
+            <summary style="cursor: pointer; font-weight: 600; color: #f5f5f7;">What payment methods do you accept?</summary>
+            <p style="margin-top: 0.5rem; color: #888; font-size: 0.9rem;">We accept PayPal and Stripe (credit/debit cards). Payment is due before work begins. For larger projects, we offer milestone-based payments.</p>
+          </details>
+          <details style="margin-bottom: 1rem; padding: 1rem; background: #111; border: 1px solid #222; border-radius: 8px;">
+            <summary style="cursor: pointer; font-weight: 600; color: #f5f5f7;">How many revisions are included?</summary>
+            <p style="margin-top: 0.5rem; color: #888; font-size: 0.9rem;">Most packages include 1-2 revision rounds. Additional revisions can be requested at $15-40 per round depending on complexity.</p>
+          </details>
+          <details style="margin-bottom: 1rem; padding: 1rem; background: #111; border: 1px solid #222; border-radius: 8px;">
+            <summary style="cursor: pointer; font-weight: 600; color: #f5f5f7;">What file formats do you deliver?</summary>
+            <p style="margin-top: 0.5rem; color: #888; font-size: 0.9rem;">Video: MP4 (H.264). Audio: WAV, MP3, FLAC. Images: PNG, JPG, WebP. 3D: PLY, GLB, OBJ (scoped per engine). We can accommodate other formats on request.</p>
+          </details>
+          <details style="margin-bottom: 1rem; padding: 1rem; background: #111; border: 1px solid #222; border-radius: 8px;">
+            <summary style="cursor: pointer; font-weight: 600; color: #f5f5f7;">Can I use the deliverables commercially?</summary>
+            <p style="margin-top: 0.5rem; color: #888; font-size: 0.9rem;">Yes. All custom deliverables are licensed for commercial use. Royalty-free assets from our shop are cleared for use per package terms. Custom LoRAs and trained models are yours to keep.</p>
+          </details>
+          <details style="margin-bottom: 1rem; padding: 1rem; background: #111; border: 1px solid #222; border-radius: 8px;">
+            <summary style="cursor: pointer; font-weight: 600; color: #f5f5f7;">What if my video is longer than the included duration?</summary>
+            <p style="margin-top: 0.5rem; color: #888; font-size: 0.9rem;">Videos exceeding the covered duration are quoted on brief based on actual length and complexity. Per-minute rates apply beyond the included duration (see our Duration &amp; Pricing Guide).</p>
+          </details>
+          <details style="margin-bottom: 1rem; padding: 1rem; background: #111; border: 1px solid #222; border-radius: 8px;">
+            <summary style="cursor: pointer; font-weight: 600; color: #f5f5f7;">Do you offer rush/priority processing?</summary>
+            <p style="margin-top: 0.5rem; color: #888; font-size: 0.9rem;">Yes, rush processing is available for an additional 25-50% fee depending on urgency and current queue. Contact us for a rush quote.</p>
+          </details>
+          <details style="margin-bottom: 1rem; padding: 1rem; background: #111; border: 1px solid #222; border-radius: 8px;">
+            <summary style="cursor: pointer; font-weight: 600; color: #f5f5f7;">Is my data private and secure?</summary>
+            <p style="margin-top: 0.5rem; color: #888; font-size: 0.9rem;">Yes. All processing is done locally on our hardware. Your media files are never uploaded to cloud services. We can sign NDAs for sensitive projects.</p>
+          </details>
+        </div>
+
+        <p class="note" style="margin-top: 1rem;"><strong>Pricing note:</strong> Starting prices are baselines for standard complexity. Final quotes depend on image count, complexity, and specific requirements. Multi-image discounts available (5+ images: 10% off, 10+ images: 20% off). Heavy processing is scheduled in production slots.</p>
+      </section>
+
+      <div class="cta-band">
+        <div>
+          <div class="t-label" style="margin-bottom:0.4rem;">Not sure where to start?</div>
+          <h3>Send us your photo — we'll recommend the right fix.</h3>
+          <p>Share the image and your goal (restore, colorize, sharpen, upscale, or animate) for a quick recommendation.</p>
+        </div>
+        <a class="btn btn-primary" href="mailto:hello@appyux.studio?subject=Image%20Project%20Inquiry">Get a recommendation</a>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="container footer-row">
+      <div class="brand"><span class="brand-mark">A</span><span>Appy-UX Studio</span></div>
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="../image/index.html">Image</a>
+        <a href="../video/index.html">Video</a>
+        <a href="../music/index.html">Music</a>
+        <a href="../games/index.html">Games</a>
+        <a href="../shop/index.html">Shop</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="../assets/slider.js"></script>
+<script src="../assets/contact-modal.js"></script>
+</body>
+</html>

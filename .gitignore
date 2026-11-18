@@ -1,0 +1,52 @@
+# Environment
+.env
+.env.local
+.env.*.local
+backend/.env
+client-portal/.env
+admin-dashboard/.env
+
+# Dependencies
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+
+# Build outputs
+dist/
+build/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Uploads
+uploads/
+
+# Worktrees
+.worktrees/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# ComfyUI (if in repo)
+models/
+output/
+input/
+
+# Large binary files
+*.ply
+*.safetensors
+*.ckpt
+*.pth
+*.onnx

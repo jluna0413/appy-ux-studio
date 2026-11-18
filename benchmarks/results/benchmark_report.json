@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-11-16 17:59:01",
+  "models": {
+    "bonsai-2-9b": {
+      "overall_score": 85.6,
+      "category_scores": {
+        "bug_fixing": 83.3,
+        "refactoring": 100.0,
+        "documentation": 100.0,
+        "code_review": 73.3,
+        "code_generation": 71.4
+      },
+      "avg_tok_per_sec": 44.0,
+      "total_time": 136.7,
+      "tests_passed": 5,
+      "tests_failed": 0
+    }
+  }
+}

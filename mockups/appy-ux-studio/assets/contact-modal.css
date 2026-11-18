@@ -1,0 +1,169 @@
+/* Contact Modal — Appy-UX Studio
+   Replaces mailto: links with a modern inquiry form */
+
+.contact-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.contact-modal-overlay.open {
+  display: flex;
+}
+
+.contact-modal {
+  background: #12121a;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 32px;
+  max-width: 480px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.contact-modal .cm-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #a1a1a6;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-modal .cm-close:hover { color: #fff; background: rgba(255,255,255,0.1); }
+
+.contact-modal h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: #f5f5f7;
+}
+
+.contact-modal .cm-subtitle {
+  font-size: 0.9rem;
+  color: #a1a1a6;
+  margin-bottom: 24px;
+}
+
+.contact-modal .cm-field {
+  margin-bottom: 16px;
+}
+
+.contact-modal .cm-label {
+  display: block;
+  font-size: 0.8rem;
+  color: #a1a1a6;
+  margin-bottom: 6px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.contact-modal .cm-input,
+.contact-modal .cm-textarea,
+.contact-modal .cm-select {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: #0a0a0f;
+  color: #f5f5f7;
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.contact-modal .cm-input:focus,
+.contact-modal .cm-textarea:focus,
+.contact-modal .cm-select:focus {
+  outline: none;
+  border-color: #0099ff;
+}
+
+.contact-modal .cm-textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.contact-modal .cm-submit {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: #0099ff;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 8px;
+}
+
+.contact-modal .cm-submit:hover { background: #0077ed; }
+.contact-modal .cm-submit:disabled { background: #333; cursor: not-allowed; }
+
+.contact-modal .cm-success {
+  text-align: center;
+  padding: 24px 0;
+}
+
+.contact-modal .cm-success .check {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.contact-modal .cm-success h3 {
+  font-size: 1.2rem;
+  color: #30d158;
+  margin-bottom: 8px;
+}
+
+.contact-modal .cm-success p {
+  color: #a1a1a6;
+  font-size: 0.9rem;
+}
+
+.contact-modal .cm-package {
+  background: #0a0a0f;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+  color: #f5f5f7;
+}
+
+.contact-modal .cm-package .label {
+  font-size: 0.7rem;
+  color: #6e6e73;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 2px;
+}
+
+.contact-modal .cm-error {
+  color: #ff6b6b;
+  font-size: 0.85rem;
+  margin-top: 8px;
+}
+
+@media (max-width: 520px) {
+  .contact-modal { padding: 24px 20px; }
+}

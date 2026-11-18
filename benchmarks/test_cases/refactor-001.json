@@ -1,0 +1,18 @@
+{
+  "id": "refactor-001",
+  "category": "refactoring",
+  "difficulty": "medium",
+  "name": "Extract Method",
+  "prompt": "Refactor this code to improve readability and maintainability:\n\n```python\ndef process_order(order):\n    # Validate order\n    if not order.get('items'):\n        raise ValueError(\"Order must have items\")\n    if not order.get('customer_id'):\n        raise ValueError(\"Order must have customer\")\n    for item in order['items']:\n        if item['quantity'] <= 0:\n            raise ValueError(\"Quantity must be positive\")\n        if item['price'] <= 0:\n            raise ValueError(\"Price must be positive\")\n    \n    # Calculate total\n    subtotal = sum(item['price'] * item['quantity'] for item in order['items'])\n    tax = subtotal * 0.1\n    shipping = 5.99 if subtotal < 50 else 0\n    total = subtotal + tax + shipping\n    \n    # Save to database\n    db.execute(\"INSERT INTO orders (customer_id, total, status) VALUES (?, ?, ?)\", \n               (order['customer_id'], total, 'pending'))\n    order_id = db.lastrowid\n    for item in order['items']:\n        db.execute(\"INSERT INTO order_items (order_id, product_id, quantity, price) VALUES (?, ?, ?, ?)\",\n                   (order_id, item['product_id'], item['quantity'], item['price']))\n    \n    # Send confirmation email\n    customer = db.execute(\"SELECT email FROM customers WHERE id = ?\", (order['customer_id'],)).fetchone()\n    send_email(customer['email'], f\"Order {order_id} confirmed. Total: ${total:.2f}\")\n    \n    return order_id\n```\n\nExtract validation, calculation, and persistence into separate functions. Add type hints.",
+  "expected": {
+    "must_contain": ["def validate", "def calculate", "def save", "def ", ":", "List", "Dict", "Optional"],
+    "must_not_contain": ["TODO", "pass"],
+    "language": "python"
+  },
+  "scoring": {
+    "correctness_weight": 0.4,
+    "completeness_weight": 0.2,
+    "quality_weight": 0.2,
+    "speed_weight": 0.2
+  }
+}

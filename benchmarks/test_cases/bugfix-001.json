@@ -1,0 +1,18 @@
+{
+  "id": "bugfix-001",
+  "category": "bug_fixing",
+  "difficulty": "easy",
+  "name": "TypeError Fix",
+  "prompt": "Fix this Python code that raises a TypeError:\n\n```python\ndef calculate_average(numbers):\n    total = sum(numbers)\n    count = len(numbers)\n    return total / count\n\nresult = calculate_average([1, 2, 3, '4', 5])\nprint(f\"Average: {result}\")\n```\n\nError: TypeError: unsupported operand type(s) for +: 'int' and 'str'\n\nProvide the fixed code and explain the fix.",
+  "expected": {
+    "must_contain": ["int(", "float(", "try", "except", "conversion", "str"],
+    "must_not_contain": ["TODO", "pass"],
+    "language": "python"
+  },
+  "scoring": {
+    "correctness_weight": 0.4,
+    "completeness_weight": 0.2,
+    "quality_weight": 0.2,
+    "speed_weight": 0.2
+  }
+}
